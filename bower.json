@@ -1,0 +1,11 @@
+{
+  "name": "ordabokWeb",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular-strap": "~2.3.0"
+  },
+  "ignoredDependencies": [
+    "angular"
+  ],
+  "private": true
+}

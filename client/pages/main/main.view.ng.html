@@ -1,0 +1,110 @@
+<div class="container">
+
+<div class="row text-center">
+  <!-- Header -->
+  <img class="responsive" src="/images/ordaboklogo.gif" alt="orðabók hauxi.is">
+
+    <h1>orðabók fyrir hina óþolinmóðu..</h1>
+
+</div>
+
+<div class="row ordabok-input-row">
+  <form role="form">
+      <div class="input-group stylish-input-group">
+          <input ng-model="searchInp" ng-change="renderAppViews(searchInp)" placeholder="Sláðu inn leitarorð. Dæmi: House, Hús, Barn" class="form-control input-lg" id="inputlg" type="text">
+          <span class="input-group-addon">
+              <button data-trigger="click" data-type="success" data-title="{{searchTipsTooltip.title}}" bs-tooltip>
+                  <span class="ion-help-circled"></span>
+              </button>
+          </span>
+  </div>
+  </form>
+</div>
+
+    <div ng-if="!initState" class="row ordabok-result-row">
+<!-- Search Results -->
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+
+    <h3 class="text-center">Íslensk orð</h3>
+
+       <div ng-if="loadingService != true" class="well result-lists" style="max-height: 400px;overflow: auto;">
+      <div class="list-group" ng-repeat="translation in filteredTranslations = (translations | filter:{ language_code: 'IS' } )">
+        <a href="#" class="list-group-item" ng-click="displayTranslation(translation)">
+          {{::translation.word}}
+        </a>
+      </div>
+      <div class="list-group" ng-if="filteredTranslations.length < 1">
+          <a href="#" class="list-group-item disabled">
+              Fann engin orð.. <i class="fa fa-frown-o"></i>
+        </a>
+      </div>
+    </div>
+
+
+       <div ng-if="loadingService == true" class="row ordabok-result-row text-center">
+           <div class="spinner">
+               <div class="rect1"></div>
+               <div class="rect2"></div>
+               <div class="rect3"></div>
+               <div class="rect4"></div>
+               <div class="rect5"></div>
+           </div>
+       </div>
+
+
+  </div>
+
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+
+      <h3 class="text-center"><i class="flag flag-icon-background flag-icon-is"></i>Ensk orð</h3>
+
+      <div ng-if="loadingService != true" class="well result-lists" style="max-height: 400px;overflow: auto;">
+      <div class="list-group" ng-repeat="translation in filteredTranslations = (translations | filter:{ language_code: 'EN' } )">
+        <a href="#" class="list-group-item" ng-click="displayTranslation(translation)">
+          {{::translation.word}}
+        </a>
+      </div>
+          <div class="list-group" ng-if="filteredTranslations.length < 1 || translation.length < 1">
+        <a href="#" class="list-group-item disabled">
+            Fann engin orð.. <i class="fa fa-frown-o"></i>
+        </a>
+      </div>
+    </div>
+
+      <div ng-if="loadingService == true" class="row ordabok-result-row text-center">
+          <div class="spinner">
+              <div class="rect1"></div>
+              <div class="rect2"></div>
+              <div class="rect3"></div>
+              <div class="rect4"></div>
+              <div class="rect5"></div>
+          </div>
+      </div>
+
+
+  </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <h3 class="text-center">Þýðing</h3>
+        <div class="well translation-result" style="height: 400px; max-height: 400px;overflow: auto;">
+            <h3 ng-if="selectedTranslation">
+                {{ selectedTranslation.word }} ({{selectedTranslation.language_code}})
+                <!--<span ng-if="selectedTranslation.language_code == 'IS'" class="flag flag-icon flag-icon-is"></span>-->
+                <!--<span ng-if="selectedTranslation.language_code == 'EN'" class="flag flag-icon flag-icon-gb"></span>-->
+            </h3>
+            {{ selectedTranslation.translation }}
+            <div ng-if="!selectedTranslation" class="text-center hidden-xs">
+                <i class="fa fa-arrow-left fa-4x"></i> <br><br>
+                Vinsamlegast veldu eitthvað að mögulegum orðum hér við hliðina á.
+            </div>
+            <div ng-if="!selectedTranslation" class="text-center visible-xs">
+                <i class="fa fa-arrow-up fa-4x"></i> <br><br>
+                Vinsamlegast veldu eitthvað að mögulegum orðum hér að ofan.
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</div> <!-- /container -->

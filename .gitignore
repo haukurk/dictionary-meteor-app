@@ -1,0 +1,5 @@
+dist/
+# Specific deploy files
+deploy_orange.bat
+deploy.key
+ordabok-web.tar.gz
