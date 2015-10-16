@@ -8,3 +8,6 @@
     LoopBackResourceProvider.setUrlBase('http://api-ordabok.hauxi.is/api');
   });
 */
+
+// Configure RetinaJS.
+Retina({retinajs: true, attribute : 'data-retina'});

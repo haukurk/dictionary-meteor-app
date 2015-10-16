@@ -2,7 +2,7 @@
 
 <div class="row text-center">
   <!-- Header -->
-  <img class="responsive" src="/images/ordaboklogo.gif" alt="orðabók hauxi.is">
+    <img class="responsive" src="/images/ordaboklogo.gif" data-retina="/images/ordaboklogo@2x.gif" alt="orðabók hauxi.is">
 
     <h1>orðabók fyrir hina óþolinmóðu..</h1>
 
@@ -92,7 +92,7 @@
                 <!--<span ng-if="selectedTranslation.language_code == 'IS'" class="flag flag-icon flag-icon-is"></span>-->
                 <!--<span ng-if="selectedTranslation.language_code == 'EN'" class="flag flag-icon flag-icon-gb"></span>-->
             </h3>
-            {{ selectedTranslation.translation }}
+            <pre>{{selectedTranslation.translation}}</pre>
             <div ng-if="!selectedTranslation" class="text-center hidden-xs">
                 <i class="fa fa-arrow-left fa-4x"></i> <br><br>
                 Vinsamlegast veldu eitthvað að mögulegum orðum hér við hliðina á.
