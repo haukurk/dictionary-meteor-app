@@ -3,3 +3,4 @@ dist/
 deploy_orange.bat
 deploy.key
 ordabok-web.tar.gz
+*.gz
