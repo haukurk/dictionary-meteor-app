@@ -1,6 +1,6 @@
 angular
     .module('ordabokWeb').controller('MainCtrl', ['$timeout','$scope', '$meteor', 'TranslationClientService', 'TranslationServerService', '$log', '$tooltip',
-        function($timeout, $scope, $meteor, TranslationClientService, TranslationServerService, $log, $tooltip) {
+                                                  function($timeout, $scope, $meteor, TranslationClientService, TranslationServerService, $log, $tooltip) {
 
         /*
          *   --- Private members of the controller
